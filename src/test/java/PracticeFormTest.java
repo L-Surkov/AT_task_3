@@ -24,7 +24,7 @@ public class PracticeFormTest {
         $("#firstName").setValue("Ilya");
         $("#lastName").setValue("Surkov");
         $("#userEmail").setValue("el@gmail.com");
-        $("#gender-radio-1][value='Male']").click();
+        $("label[for='gender-radio-1']").click();
         $("#userNumber").setValue("89298885541");
         $("#userNumber").setValue("89298885541");
         $("#submit").click();
