@@ -1,5 +1,3 @@
-package tests;
-
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
@@ -23,10 +21,12 @@ public class PracticeFormTest {
     @Test
     void fillFormTest() {
         open("/automation-practice-form");
-        $("#userName").setValue("Alex");
-        $("#userEmail").setValue("alex@egorov.com");
-        $("#currentAddress").setValue("Some street 1");
-        $("#permanentAddress").setValue("Another street 1");
+        $("#firstName").setValue("Ilya");
+        $("#lastName").setValue("Surkov");
+        $("#userEmail").setValue("el@gmail.com");
+        $("#gender-radio-1][value='Male']").click();
+        $("#userNumber").setValue("89298885541");
+        $("#userNumber").setValue("89298885541");
         $("#submit").click();
 
         $("#output #name").shouldHave(text("Alex"));
