@@ -1,11 +1,15 @@
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import static com.codeborne.selenide.Selenide.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+
 
 public class PracticeFormTest {
 
@@ -26,7 +30,18 @@ public class PracticeFormTest {
         $("#userEmail").setValue("el@gmail.com");
         $("label[for='gender-radio-1']").click();
         $("#userNumber").setValue("89298885541");
-        $("#userNumber").setValue("89298885541");
+        $("#dateOfBirthInput").click();
+        String day = "010";
+        String month = "October";
+        int year = 2000;
+        $(".react-datepicker__year-select").selectOption(String.valueOf(year));
+        $(".react-datepicker__month-select").selectOption(month);
+        $(".react-datepicker__day--" + day).click();
+        $("#subjectsInput").click();
+        $("#subjectsInput").setValue("Hi");
+        Selenide.sleep(500);
+        $$(".subjects-auto-complete__option").findBy(text("History")).click();
+
         $("#submit").click();
 
         $("#output #name").shouldHave(text("Alex"));
