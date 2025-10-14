@@ -41,7 +41,7 @@ public class PracticeFormTest {
         $("#subjectsInput").setValue("Hi");
         Selenide.sleep(500);
         $$(".subjects-auto-complete__option").findBy(text("History")).click();
-
+        $("label[for='hobbies-checkbox-1']").click();
         $("#submit").click();
 
         $("#output #name").shouldHave(text("Alex"));
