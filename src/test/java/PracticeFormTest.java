@@ -5,7 +5,7 @@ import com.codeborne.selenide.Selenide;
 import static com.codeborne.selenide.Selenide.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
+import com.codeborne.selenide.Selectors;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -42,6 +42,12 @@ public class PracticeFormTest {
         Selenide.sleep(500);
         $$(".subjects-auto-complete__option").findBy(text("History")).click();
         $("label[for='hobbies-checkbox-1']").click();
+        $("#uploadPicture").uploadFromClasspath("images/imagefortest.png");
+        $("#currentAddress").setValue("г. Пенза, ул. Красная 64, кв. 166");
+        $(Selectors.byText("Select State")).click();
+        $(Selectors.byText("NCR")).click();
+        $(Selectors.byText("Select City")).click();
+        $(Selectors.byText("Noida")).click();
         $("#submit").click();
 
         $("#output #name").shouldHave(text("Alex"));
