@@ -29,7 +29,7 @@ public class PracticeFormTest {
         $("#lastName").setValue("Surkov");
         $("#userEmail").setValue("el@gmail.com");
         $("label[for='gender-radio-1']").click();
-        $("#userNumber").setValue("89298885541");
+        $("#userNumber").setValue("8929888554");
         $("#dateOfBirthInput").click();
         String day = "010";
         String month = "October";
@@ -49,5 +49,16 @@ public class PracticeFormTest {
         $(Selectors.byText("Select City")).click();
         $(Selectors.byText("Noida")).click();
         $("#submit").click();
+        $(".modal-body").shouldHave(text("Ilya"));
+        $(".modal-body").shouldHave(text("Surkov"));
+        $(".modal-body").shouldHave(text("el@gmail.com"));
+        $(".modal-body").shouldHave(text("Male"));
+        $(".modal-body").shouldHave(text("8929888554"));
+        $(".modal-body").shouldHave(text("10 October,2000"));
+        $(".modal-body").shouldHave(text("History"));
+        $(".modal-body").shouldHave(text("Sports"));
+        $(".modal-body").shouldHave(text("imagefortest.png"));
+        $(".modal-body").shouldHave(text("г. Пенза, ул. Красная 64, кв. 166"));
+        $(".modal-body").shouldHave(text("NCR Noida"));
     }
 }
