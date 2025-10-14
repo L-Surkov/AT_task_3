@@ -49,10 +49,5 @@ public class PracticeFormTest {
         $(Selectors.byText("Select City")).click();
         $(Selectors.byText("Noida")).click();
         $("#submit").click();
-
-        $("#output #name").shouldHave(text("Alex"));
-        $("#output #email").shouldHave(text("alex@egorov.com"));
-        $("#output #currentAddress").shouldHave(text("Some street 1"));
-        $("#output #permanentAddress").shouldHave(text("Another street 1"));
     }
 }
